@@ -23,7 +23,7 @@ def flip(sprites):
     return [pygame.transform.flip(sprite, True, False) for sprite in sprites]
 
 def load_sprite_sheets(dir1, dir2, width, height, direction = False):
-    path = join("assets", dir1, dir2)
+    path = join(dir1, dir2)
     images = [f for f in listdir(path) if isfile(join(path, f))]
 
     all_sprites = {}
@@ -48,7 +48,7 @@ def load_sprite_sheets(dir1, dir2, width, height, direction = False):
 
 
 def get_block(size):
-    path = join("assets", "Terrain", "Terrain.png")
+    path = join("Terrain", "Terrain.png")
     image = pygame.image.load(path).convert_alpha()
     surface = pygame.Surface((size, size), pygame.SRCALPHA, 32)
     rect = pygame.Rect(96, 64, size, size) # 96, 0, size, size
@@ -56,7 +56,7 @@ def get_block(size):
     return pygame.transform.scale2x(surface)
 
 # def get_door(size):
-#     path = join("assets", "Other", "door.png")
+#     path = join("Other", "door.png")
 #     image = pygame.image.load(path).convert_alpha()
 #     surface = pygame.Surface((size, size), pygame.SRCALPHA, 32)
 #     rect = pygame.Rect(0, 0, size, size)
@@ -327,7 +327,7 @@ class Fire(Object):
 
 # Background
 def get_background(name):
-    image = pygame.image.load(join("assets", "Background", name))
+    image = pygame.image.load(join("Background", name))
     _, _, width, height = image.get_rect() # The first two underscores are x and y. We don't need them in this game
     tiles = []
 
